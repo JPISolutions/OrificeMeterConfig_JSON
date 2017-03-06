@@ -9,12 +9,18 @@
 		"contractHour": 8,
 		"AGA3":  {
 			"calculation": "AGA3 1992",
+			"orificeTap": "Flange",
 			"orificeDiameter": 25.1,
+			"orificeMaterial": "316 Stainless Steel",
 			"orificeReferenceTemprature": 20,
 			"pipeInsideDiameter": 76.1,
+			"pipeMaterial": "Carbon Steel",
 			"pipeReferenceTemperature": 20,
 			"baseTemperature": 15,
-			"basePressure": 101.325
+			"basePressure": 101.325,
+			"isentropicExponent": 1.3,
+			"viscosity": 0.010268,
+			"flowExtentsion": "Method 1"
 		},
 		"AGA8": {
 				"components": [
@@ -34,7 +40,11 @@
 					{ "component": "C8", "value": 0},
 					{ "component": "C9", "value": 0},
 					{ "component": "C10", "value": 0},
-					{ "component": "CH4", "value": 0}
+					{ "component": "N2", "value": 0},
+					{ "component": "H2O", "value": 0},
+					{ "component": "CO", "value": 0},
+					{ "component": "O2", "value": 0},
+					{ "component": "Ar", "value": 0}
 				],
 				"density": 50.0,
 				"compressibility": 0.0
