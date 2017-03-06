@@ -1,0 +1,69 @@
+{
+	"configuration": {
+		"name": "meterName",
+		"owner": "ownerName",
+		"latitude": 123.456,
+		"longitude": 123.456,
+		"elevation": 0.0,
+		"units": "metric",
+		"contractHour": 8,
+		"AGA3":  {
+			"calculation": "AGA3 1992",
+			"orificeDiameter": 25.1,
+			"orificeReferenceTemprature": 20,
+			"pipeInsideDiameter": 76.1,
+			"pipeReferenceTemperature": 20,
+			"baseTemperature": 15,
+			"basePressure": 101.325
+		},
+		"AGA8": {
+				"components": [
+					{ "component": "H2", "value": 0},
+					{ "component": "He", "value": 0},
+					{ "component": "CO2", "value": 0},
+					{ "component": "H2S", "value": 0},
+					{ "component": "C1", "value": 0},
+					{ "component": "C2", "value": 0},
+					{ "component": "C3", "value": 0},
+					{ "component": "iC4", "value": 0},
+					{ "component": "nC4", "value": 0},
+					{ "component": "iC5", "value": 0},
+					{ "component": "nC5", "value": 0},
+					{ "component": "C6", "value": 0},
+					{ "component": "C7", "value": 0},
+					{ "component": "C8", "value": 0},
+					{ "component": "C9", "value": 0},
+					{ "component": "C10", "value": 0},
+					{ "component": "CH4", "value": 0}
+				],
+				"density": 50.0,
+				"compressibility": 0.0
+		},
+		"sensors": {
+			"differentialPressure": {
+				"source": "multi-variable",
+				"serialNumber": "SN_TEXT",
+				"minimumRange": 0.0,
+				"maximumRange": 100.0,
+				"units": "kPa"
+			},
+			"staticPressure": {
+				"source": "multi-variable",
+				"serialNumber": "SN_TEXT",
+				"minimumRange": 0.0,
+				"maximumRange": 10000.0,
+				"units": "kPa",
+				"tapLocation": "upstream",
+				"sensorType": "gauge",
+				"atmosphericPressure": 101.325				
+			},
+			"flowingTemperature": {
+				"source": "multi-variable",
+				"serialNumber": "SN_TEXT",
+				"minimumRange": -40.0,
+				"maximumRange": 100.0,
+				"units": "Celsius"
+			}
+		}
+	}
+}
