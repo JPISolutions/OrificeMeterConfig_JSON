@@ -1,0 +1,18 @@
+{
+	"daily": {
+		"QTR": "StringId",
+		"Batch": "BatchId",
+		"EndTime": "1/1/2001 8:00:00",
+		"FlowingTime": 24,
+		"volume": 123.456,
+		"mass": 123.456,
+		"energy": 123.456,
+		"differentialPressure": 123.456,
+		"staticPressure": 123.456,
+		"temperature": 123.456,
+		"density": 123.456,
+		"flowExtentsion": 123.456,
+		"events": 0,
+		"alarms": 0
+	}
+}

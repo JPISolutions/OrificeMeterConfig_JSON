@@ -12,7 +12,7 @@
 			"orificeTap": "Flange",
 			"orificeDiameter": 25.1,
 			"orificeMaterial": "316 Stainless Steel",
-			"orificeReferenceTemprature": 20,
+			"orificeReferenceTemperature": 20,
 			"pipeInsideDiameter": 76.1,
 			"pipeMaterial": "Carbon Steel",
 			"pipeReferenceTemperature": 20,
