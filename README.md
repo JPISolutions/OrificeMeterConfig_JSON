@@ -16,7 +16,8 @@ This section contains the primary identifying and location information for this 
 		"contractHour": 8,
 
 ### Configuration - Fields
-Question for contributors: Do we need more descriptive metadata?* name - String field containing the name of the meter
+Question for contributors: Do we need more descriptive metadata?
+* name - String field containing the name of the meter
 * owner - String field indicating the owner of the meter
 * latitude, longitude, elevation - Location information
 * units - Metric or Imperial.
