@@ -69,6 +69,7 @@ Contributors please update valid options if you know they are different.
 	* 316 Stainless Steel
 	* Monel 400
 	* Carbon Steel
+	
 	These materials provide the linear coefficient of thermal expansion (available in the AGA3 standard). That coefficient is only good for certain flowing temperatures, as noted in the standard. 
 pipeReferenceTemperature - The temperature at which the inside diameter was measured.
 * baseTemperature - Temperature at 'standard' conditions. ISO Standard: Metric = 15degC. Imperial = 59degF. US Standard: Metric = 15.56degC. Imperial 60degF. 
