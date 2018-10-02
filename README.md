@@ -12,7 +12,10 @@ This section contains the primary identifying and location information for this 
 		"latitude": 123.456,
 		"longitude": 123.456,
 		"elevation": 0.0,
-		"units": "metric",
+		"baseTemperature": 15,
+		"basePressure": 101.325,
+		"atmosphericPressure": 101.325,
+		"units": "Metric",
 		"contractHour": 8,
 
 ### Configuration - Fields
@@ -20,6 +23,8 @@ Question for contributors: Do we need more descriptive metadata?
 * name - String field containing the name of the meter
 * owner - String field indicating the owner of the meter
 * latitude, longitude, elevation - Location information
+* baseTemperature - Temperature at 'standard' conditions. ISO Standard: Metric = 15degC. Imperial = 59degF. US Standard: Metric = 15.56degC. Imperial 60degF. 
+* basePressure - Pressure at 'standard' conditions. Metric = 101.325kPa. Imperial = 14.696psi.
 * units - Metric or Imperial.
 	* Metric
 		* Volume = E3m3/day
@@ -34,6 +39,7 @@ Question for contributors: Do we need more descriptive metadata?
 
 ## AGA3
 This section contains all the primary parameters required for the AGA3 calculation. Orifice and pipe materials shall be the materials specified in the AGA3 standard. They will be listed here sometime soon too. 
+Edit 2018/10/02 - Moved baseTemperature and basePressure up a level since it may be used with the AGA8 parameters as well. 
 
 		"AGA3":  {
 			"calculation": "AGA3 1992",
@@ -44,8 +50,6 @@ This section contains all the primary parameters required for the AGA3 calculati
 			"pipeInsideDiameter": 76.1,
 			"pipeMaterial": "Carbon Steel",
 			"pipeReferenceTemperature": 20,
-			"baseTemperature": 15,
-			"basePressure": 101.325,
 			"isentropicExponent": 1.3,
 			"viscosity": 0.010268,
 			"flowExtentsion": "Method 1"
@@ -54,32 +58,32 @@ This section contains all the primary parameters required for the AGA3 calculati
 ### AGA3 - Fields
 Contributors please update valid options if you know they are different. 
 * calculation - This specifies which version of the AGA3 calculation this meter is using. Valid options:
-	* AGA3 1985
-	* AGA3 1992
-	* AGA3 2013
+	* AGA3_1985
+	* AGA3_1992
+	* AGA3_2013
 * orificeTap - Flange or ??
 * orificeDiameter - The diameter of the orifice hole in the orifice plate. Metric = mm. Imperial = inches. 
 * orificeMaterial - material the orifice plate is made of. See below for valid options. 
-* orificeReferenceTemperature - the temperature at which the orifice diameter was measured.
+* orificeReferenceTemperature - the temperature at which the orifice diameter was measured. Metric = Deg C. Imperial = Deg F. 
 * pipeInsideDiameter - The internal diameter of the meter tube. AKA meter tube internal diameter. Must be stamped on the meter tube itself. Metric = mm. Imperial = inches. 
 * pipeMaterial - The material the meter tube is made out of. 
+* pipeReferenceTemperature - the temperature at which the pipe diameter was measure. Metric = Deg C. Imperial = Deg F. 
 * Valid orifice and pipe materials:
-	* 304/316 Stainless Steel
-	* 304 Stainless Steel
-	* 316 Stainless Steel
-	* Monel 400
-	* Carbon Steel
+	* Type_304/316_Stainless_Steel
+	* Type_304_Stainless_Steel
+	* Type_316_Stainless_Steel
+	* Monel_400
+	* Carbon_Steel
 	
 	These materials provide the linear coefficient of thermal expansion (available in the AGA3 standard). That coefficient is only good for certain flowing temperatures, as noted in the standard. 
 pipeReferenceTemperature - The temperature at which the inside diameter was measured.
-* baseTemperature - Temperature at 'standard' conditions. ISO Standard: Metric = 15degC. Imperial = 59degF. US Standard: Metric = 15.56degC. Imperial 60degF. 
-* basePressure - Pressure at 'standard' conditions. Metric = 101.325kPa. Imperial = 14.696psi.
 
 
 ## AGA8
 The AGA8 section contains the information about the fluid being measured. This information is used by the flow computer to calculate fluid density which is a primary input for the AGA3 mass flow calculation. Values for components will be in percent (%), not molar fraction. 
 
 		"AGA8": {
+				"units": "molar_fraction",
 				"components": [
 					{ "component": "H2", "value": 0.0},
 					{ "component": "He", "value": 0.0},
@@ -107,6 +111,12 @@ The AGA8 section contains the information about the fluid being measured. This i
 				"compressibility": 0.0
 		},
 		
+### AGA8 Fields
+* units - Valid options are molar_fraction or percent. 
+* components - An array of components that make up the gas composition. Components may be missing from the array if not in the gas stream.
+* density - This is the density of the gas stream. Usually calculated live on the fly in modern RTUs and flow computers. May be configured in some flow computers though. 
+* compressibility - This is the compressibility of the gas stream at base conditions. Usually calculated live on the fly in modern RTUs and flow computers. May be configured in some flow computers though.
+
 ## Sensors
 Information about the sensing device(s) is contained here. Source types shall be "multi-variable" or "single". Serial numbers are optional but are recommended to be included. 
 
@@ -125,8 +135,7 @@ Information about the sensing device(s) is contained here. Source types shall be
 				"maximumRange": 10000.0,
 				"units": "kPa",
 				"tapLocation": "upstream",
-				"sensorType": "gauge",
-				"atmosphericPressure": 101.325				
+				"sensorType": "gauge"			
 			},
 			"flowingTemperature": {
 				"source": "multi-variable",
